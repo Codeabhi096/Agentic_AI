@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Determine default webhook URL (supports Streamlit secrets, env vars, or fallback)
-DEFAULT_WEBHOOK_URL = "https://firstproject7208.app.n8n.cloud/webhook-test/783ce764-7ce6-4647-8de0-7c38ad0d4d21"
+DEFAULT_WEBHOOK_URL = "https://firstproject7208.app.n8n.cloud/webhook/783ce764-7ce6-4647-8de0-7c38ad0d4d21"
 
 try:
     if "N8N_WEBHOOK_URL" in st.secrets:
