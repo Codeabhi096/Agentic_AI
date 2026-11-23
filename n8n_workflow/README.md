@@ -15,7 +15,7 @@ The backbone of this assistant is built using n8n's AI Agent architecture with c
 Interactive web chat interface connecting seamlessly to the n8n webhook:
 
 ![Streamlit UI](screenshots/streamlit_ui.png)
-*(Streamlit run karke screenshot `screenshots/streamlit_ui.png` naam se save karein)*
+
 
 ---
 
