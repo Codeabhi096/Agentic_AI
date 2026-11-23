@@ -1,6 +1,18 @@
 # 🤖 Autonomous Personal AI Assistant (n8n + Streamlit)
 
-An autonomous multi-tool **Personal AI Assistant** powered by an **n8n Agentic Workflow** and an interactive **Streamlit** user interface. The assistant orchestrates multi-step tasks across real-world Google Workspace tools, real-time web search, and expense management using OpenAI LLM and conversational memory.
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://agenticai-28f4o89zzdnxz2nwwqqtd2.streamlit.app/)
+![n8n Workflow](https://img.shields.io/badge/n8n-Agentic%20Workflow-FF6584?style=flat&logo=n8n&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-Chat%20Model-412991?style=flat&logo=openai&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.67+-FF4B4B?style=flat&logo=streamlit&logoColor=white)
+
+An autonomous multi-tool **Personal AI Assistant** powered by an **n8n Agentic Workflow** and an interactive, responsive, animated **Streamlit** user interface. The assistant orchestrates multi-step tasks across real-world Google Workspace tools, real-time web search, and expense management using OpenAI LLM and conversational memory.
+
+---
+
+## 🌐 Live Application
+Experience the live deployed application here:  
+👉 **[https://agenticai-28f4o89zzdnxz2nwwqqtd2.streamlit.app/](https://agenticai-28f4o89zzdnxz2nwwqqtd2.streamlit.app/)**
 
 ---
 
@@ -11,11 +23,11 @@ The backbone of this assistant is built using n8n's AI Agent architecture with c
 
 ![n8n Workflow Architecture](screenshots/n8n_workflow.jpg)
 
-### 2. Streamlit Web UI
-Interactive web chat interface connecting seamlessly to the n8n webhook:
+### 2. Streamlit Dynamic Web UI
+Interactive, animated web chat interface with live n8n webhook integration:
 
 ![Streamlit UI](screenshots/streamlit_ui.png)
-
+*(Save your local or live Streamlit screenshot as `screenshots/streamlit_ui.png` to view it here)*
 
 ---
 
@@ -60,7 +72,7 @@ As configured in the n8n agentic workflow:
 
 | Tool Category | Node Name / Action | Capability |
 | :--- | :--- | :--- |
-| **🧠 Core LLM** | OpenAI Chat Model | High-reasoning chat model for tool selection and synthesis |
+| **🧠 Core LLM** | OpenAI Chat Model | High-reasoning chat model for tool selection, reasoning, and synthesis |
 | **💾 Memory** | Simple Memory | Multi-turn conversational buffer memory for context retention |
 | **🔍 Search** | Google Search in SerpApi | Real-time web browsing and information retrieval |
 | **📅 Calendar** | Create, Get, & Get Many Events | Schedules, retrieves, and updates calendar meetings |
@@ -68,6 +80,17 @@ As configured in the n8n agentic workflow:
 | **✉️ Gmail** | Get Message, Get Many, Send Message | Reads, summarizes inbox emails and drafts/sends replies |
 | **📄 Docs** | Create Document, Update Document | Takes meeting notes, drafts reports, and edits Google Docs |
 | **💰 Expense Tracker**| Append Row, Update Row, Calculator | Performs calculations and logs financial records in Google Sheets |
+
+---
+
+## 🎨 UI Enhancements & Dynamic Features
+
+- **📱 Fully Responsive Design**: Seamlessly adapts to smartphones, tablets, and desktop displays.
+- **✨ Animated Glassmorphic Cards**: Smooth hover states, glowing borders, and modern micro-animations.
+- **⚡ One-Click Quick Actions**: Pre-built interactive prompts (Schedule check, Email check, Expense logging, Task retrieval).
+- **🟢 Live Webhook Status**: Live connection indicator connecting directly to your published n8n workflow.
+- **⚙️ Configurable Webhook**: Easily swap between Test (`/webhook-test/`) and Production (`/webhook/`) endpoints right from the sidebar.
+- **🗑️ Chat Management**: Instant chat history wipe and real-time interaction metrics.
 
 ---
 
@@ -87,7 +110,7 @@ n8n_workflow/
 ├── .env.example                  # Environment variable template
 ├── .gitignore                    # Git ignore file
 ├── .python-version               # Python version specification
-├── app.py                        # Streamlit web chat application
+├── app.py                        # Enhanced Streamlit web chat application
 ├── main.py                       # Project entrypoint launcher
 ├── pyproject.toml                # Project packaging configuration
 ├── requirements.txt              # Production dependencies for Streamlit Cloud
@@ -100,7 +123,7 @@ n8n_workflow/
 ## 🚀 Getting Started (Local Development)
 
 ### Prerequisites
-- Python 3.10+ installed
+- Python 3.11+ installed
 - [uv](https://github.com/astral-sh/uv) (recommended) or standard `pip`
 - An active n8n instance (Self-hosted or n8n Cloud) with the workflow published
 
@@ -126,33 +149,11 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### 3. Configure Webhook URL
-Create a `.env` file from `.env.example`:
-```bash
-cp .env.example .env
-```
-Inside `.env`, set your n8n webhook URL:
-```env
-N8N_WEBHOOK_URL="https://your-instance.app.n8n.cloud/webhook/your-webhook-id"
-```
-
-> **Note on n8n Webhook URLs**:
-> - **Testing Mode**: `https://<instance>/webhook-test/<id>` (requires clicking *"Test step"* or *"Listen for test event"* in n8n).
-> - **Production Mode**: `https://<instance>/webhook/<id>` (requires publishing/activating the workflow by toggling **Published** to ON).
-
-### 4. Test Webhook Connection
-Run the standalone webhook test script:
-```bash
-uv run python testwebhook.py
+### 3. Run the Streamlit Application
+```powershell
+uv run python -m streamlit run app.py
 # or
-python testwebhook.py
-```
-
-### 5. Run the Streamlit Application
-```bash
-uv run streamlit run app.py
-# or
-streamlit run app.py
+python -m streamlit run app.py
 # or via main launcher
 python main.py
 ```
@@ -160,49 +161,31 @@ Open your browser at `http://localhost:8501`.
 
 ---
 
-## ☁️ Streamlit Cloud Deployment Guide
+## ☁️ Streamlit Cloud Deployment
 
-Follow these steps to deploy this project on **Streamlit Community Cloud** (free hosting):
+This app is actively deployed at:  
+👉 **`https://agenticai-28f4o89zzdnxz2nwwqqtd2.streamlit.app/`**
 
-### Step 1: Push Code to GitHub
-Ensure all files are committed and pushed to your GitHub repository:
-```bash
-git add .
-git commit -m "Complete n8n personal assistant with Streamlit UI"
-git push origin main
-```
-
-### Step 2: Deploy on Streamlit Cloud
-1. Go to [share.streamlit.io](https://share.streamlit.io/) and sign in with GitHub.
-2. Click **"New app"**.
-3. Select your repository: `username/n8n_workflow`.
-4. Set **Branch**: `main`.
-5. Set **Main file path**: `app.py`.
-
-### Step 3: Configure Secrets in Streamlit Cloud
-In the deployment settings, expand **"Advanced settings"** -> **"Secrets"**, and paste:
+### Secrets Configuration on Streamlit Cloud:
+In **Settings > Secrets**:
 ```toml
 N8N_WEBHOOK_URL = "https://firstproject7208.app.n8n.cloud/webhook/783ce764-7ce6-4647-8de0-7c38ad0d4d21"
 ```
-*(Make sure to use your **Production Webhook URL** without `-test` once the workflow is Published in n8n).*
-
-### Step 4: Click Deploy!
-Streamlit will install packages from `requirements.txt` and launch your assistant online with a public shareable URL.
 
 ---
 
-## 💡 Usage Examples
+## 💡 Example Prompts to Try
 
-Once connected, you can ask your personal assistant prompts such as:
-- *"What meetings do I have scheduled for tomorrow?"*
-- *"Add a task to Google Tasks: Complete Agentic AI assignment by Friday."*
-- *"Check my latest unread emails in Gmail."*
-- *"Add an expense of 450 INR for lunch in my expense sheet."*
-- *"Create a Google Doc titled 'Meeting Notes' and add key discussion points."*
-- *"Search the web for the latest updates on Quantum Computing in 2026."*
+- *"What meetings do I have scheduled for today on my Google Calendar?"*
+- *"Check my unread emails in Gmail and summarize the most important one."*
+- *"Add an expense of 450 INR for lunch into my expense sheet."*
+- *"Add a task to Google Tasks: 'Prepare presentation deck by Friday'."*
+- *"Create a Google Doc titled 'Agentic AI Roadmap' and add bullet points on n8n."*
+- *"Search the web for the latest developments in humanoid robotics."*
 
 ---
 
 ## 👨‍💻 Author
 **Abhishek Pathak**  
-- Email: `abhishek.pathak01111@gmail.com`
+- Email: `abhishek.pathak01111@gmail.com`  
+- Live Project: [agenticai-28f4o89zzdnxz2nwwqqtd2.streamlit.app](https://agenticai-28f4o89zzdnxz2nwwqqtd2.streamlit.app/)
